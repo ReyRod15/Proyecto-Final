@@ -56,6 +56,7 @@ def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
 
 
 
+
 def mostrar_productos(inventario):
     tabla_productos = []
     precios_totales = 0     #Total en dolares de todos los productos
