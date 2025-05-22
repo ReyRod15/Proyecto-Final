@@ -1,0 +1,9 @@
+{
+    "001": {
+        "nombre": "Defensa",
+        "cantidad": 2,
+        "precio_unit": 500,
+        "precio_total": 1000.0
+    }
+    
+}
