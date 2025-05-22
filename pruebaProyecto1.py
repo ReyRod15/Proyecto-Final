@@ -87,8 +87,6 @@ def borrar_producto(inventario):
             break
     guardar_inventario(inventario)
 
-
+print("Prueba de commits")
 
 inventario = cargar_inventario()
-mostrar_productos(inventario)
-borrar_producto(inventario)
