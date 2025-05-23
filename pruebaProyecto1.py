@@ -2,6 +2,7 @@ import json
 import os
 from tabulate import tabulate
 import random
+import time
 
 ARCHIVO = "inventario.json"
 
@@ -40,7 +41,24 @@ def generar_id(inventario, nombre_producto):
 def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
     nombre = input("Nombre de producto nuevo: ")
     nombre = nombre.capitalize()
-    cantidad = int(input("Cantidad del producto: "))
+    cantidad = int(input("Cantidad del producto: (Luego indicara la medida del producto si es en metros, miligramos, etc)"))
+    time.sleep(1)
+    print("\nOpciones de medidas para productos:")
+    print("1. Metros")
+    print("2. Miligramos")
+    print("3. Unitario")
+    print("4. Otro")
+    opcion = input("Escriba el numero de la medida que desea emplear: ")
+    if opcion == 1:
+        cantidad = str(cantidad) + "m"
+    elif opcion == 2:
+        cantidad = str(cantidad) + "mg"
+    elif opcion == 3:
+        cantidad = str(cantidad) + "Unid"
+    elif opcion == 4:
+        cantidad = str(cantidad) + input("Escriba la medida del producto: ")
+        
+
     precio_unit = float(input("Ingrese el precio del nuevo producto: "))
     precio_total = precio_unit * cantidad
     nuevo_id = generar_id(inventario, nombre)
@@ -91,3 +109,10 @@ def borrar_producto(inventario):
 print("Prueba de commits")
 
 inventario = cargar_inventario()
+agregar_producto(inventario)
+agregar_producto(inventario)
+agregar_producto(inventario)
+agregar_producto(inventario)
+agregar_producto(inventario)
+agregar_producto(inventario)
+mostrar_productos(inventario)
