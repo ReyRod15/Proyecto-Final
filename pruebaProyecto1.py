@@ -4,7 +4,7 @@ from tabulate import tabulate
 import random
 import time
 
-ARCHIVO = "inventario.json"
+ARCHIVO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "inventario.json")
 
 # FUNCIONES DE ARCHIVO
 
@@ -114,4 +114,4 @@ def borrar_producto(inventario):
     guardar_inventario(inventario)
 
 inventario = cargar_inventario()
-mostrar_productos(inventario)
+agregar_producto(inventario)
