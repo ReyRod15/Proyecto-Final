@@ -41,26 +41,33 @@ def generar_id(inventario, nombre_producto):
 def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
     nombre = input("Nombre de producto nuevo: ")
     nombre = nombre.capitalize()
-    cantidad = int(input("Cantidad del producto: (Luego indicara la medida del producto si es en metros, miligramos, etc)"))
-    time.sleep(1)
+    cantidad = int(input("Cantidad del producto: (Luego indicara la medida del producto si es en metros, miligramos, etc): "))
+    time.sleep(0.5)
     print("\nOpciones de medidas para productos:")
     print("1. Metros")
+    time.sleep(0.5)
     print("2. Miligramos")
+    time.sleep(0.5)
     print("3. Unitario")
+    time.sleep(0.5)
     print("4. Otro")
-    opcion = input("Escriba el numero de la medida que desea emplear: ")
-    if opcion == 1:
-        cantidad = str(cantidad) + "m"
-    elif opcion == 2:
-        cantidad = str(cantidad) + "mg"
-    elif opcion == 3:
-        cantidad = str(cantidad) + "Unid"
-    elif opcion == 4:
-        cantidad = str(cantidad) + input("Escriba la medida del producto: ")
+    cantidad_base = cantidad
+    opcion = 0
+    while opcion not in [1, 2, 3, 4]:
+        opcion = int(input("Escriba el numero de la medida que desea emplear: "))
+        if opcion == 1:
+            cantidad = str(cantidad) + "m"
+        elif opcion == 2:
+            cantidad = str(cantidad) + "mg"
+        elif opcion == 3:
+            cantidad = str(cantidad) + "Unid"
+        elif opcion == 4:
+            cantidad = str(cantidad) + input("Escriba la medida del producto: ")
+        else:
+            print("\nSeleccione una opcion valida")
         
-
-    precio_unit = float(input("Ingrese el precio del nuevo producto: "))
-    precio_total = precio_unit * cantidad
+    precio_unit = float(input("Ingrese el precio del nuevo producto (teniendo en cuenta la medida que escogio anteriormente): "))
+    precio_total = precio_unit * cantidad_base
     nuevo_id = generar_id(inventario, nombre)
     
     inventario[nuevo_id] = {
@@ -106,13 +113,5 @@ def borrar_producto(inventario):
             break
     guardar_inventario(inventario)
 
-print("Prueba de commits")
-
 inventario = cargar_inventario()
-agregar_producto(inventario)
-agregar_producto(inventario)
-agregar_producto(inventario)
-agregar_producto(inventario)
-agregar_producto(inventario)
-agregar_producto(inventario)
 mostrar_productos(inventario)
