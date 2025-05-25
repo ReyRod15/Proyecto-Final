@@ -1,9 +1,14 @@
 {
-    "D001": {
-        "nombre": "Defensa",
-        "cantidad": 2,
-        "precio_unit": 500,
-        "precio_total": 1000.0
+    "P001": {
+        "nombre": "Polarizado nananoceramico",
+        "cantidad": "10m",
+        "precio_unit": 25.0,
+        "precio_total": 250.0
+    },
+    "R001": {
+        "nombre": "Radio pionner mvh-av251bt",
+        "cantidad": "5 Unid",
+        "precio_unit": 325.0,
+        "precio_total": 1625.0
     }
-
 }
