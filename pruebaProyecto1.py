@@ -162,7 +162,7 @@ def main():
 
     
     inventario = cargar_inventario()
-    def codeRunner():
+    def menu():
         print(pyfiglet.figlet_format("Inventario", font="slant"))
         presentacion = [
             "Menu de Opciones",
@@ -212,7 +212,7 @@ def main():
             except ValueError:
                 print()
                 print("Selecciona una opcion valida")
-    codeRunner()
+    menu()
 
 if __name__ == "__main__":
     main()
