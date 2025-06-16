@@ -1,9 +1,26 @@
 {
-    "D001": {
-        "nombre": "Defensa",
-        "cantidad": 2,
-        "precio_unit": 500,
-        "precio_total": 1000.0
+    "P001": {
+        "nombre": "Polarizado Nanoceramico",
+        "cantidad": "10m",
+        "precio_unit": 25.0,
+        "precio_total": 250.0
+    },
+    "R001": {
+        "nombre": "Radio Pionner mvh-av251bt",
+        "cantidad": "5 Unid",
+        "precio_unit": 325.0,
+        "precio_total": 1625.0
+    },
+    "A001": {
+        "nombre": "Alarma k9",
+        "cantidad": "10 Unid",
+        "precio_unit": 48,
+        "precio_total": 400.0
+    },
+    "C001": {
+        "nombre": "Canastera Rhino",
+        "cantidad": "2 Unid",
+        "precio_unit": 100.0,
+        "precio_total": 200.0
     }
-
 }
