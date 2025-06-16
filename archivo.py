@@ -2,6 +2,7 @@ import os
 import json
 
 ARCHIVO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "inventario.json")
+
 def cargar_inventario():
     if os.path.exists(ARCHIVO):
         with open(ARCHIVO, "r") as f:
