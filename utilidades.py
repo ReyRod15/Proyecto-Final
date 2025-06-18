@@ -1,7 +1,3 @@
-import pyfiglet
-import msvcrt
-import time
-
 def generar_id(inventario, nombre_producto):
     letra = nombre_producto[0].upper()  # primera letra en mayúscula
     ids_existentes = [

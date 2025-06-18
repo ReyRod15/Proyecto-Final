@@ -2,7 +2,7 @@ import pyfiglet
 import msvcrt
 import time
 from archivo import cargar_inventario
-from operaciones import mostrar_productos, agregar_producto, borrar_producto, actu_precios
+from inventario import mostrar_productos, agregar_producto, borrar_producto, actu_precios
 def main():
     def menu():
         inventario = cargar_inventario()
