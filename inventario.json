@@ -22,5 +22,11 @@
         "cantidad": "2 Unid",
         "precio_unit": 100.0,
         "precio_total": 200.0
+    },
+    "R002": {
+        "nombre": "Radio pioneer avh-g225bt",
+        "cantidad": "10 Unid",
+        "precio_unit": 210.0,
+        "precio_total": 2100.0
     }
 }
