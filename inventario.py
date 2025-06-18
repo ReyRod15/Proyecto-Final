@@ -1,6 +1,6 @@
 import time
 from tabulate import tabulate
-from ProyectoFinal.utilidades import generar_id, pedir_precio_valido
+from utilidades import generar_id, pedir_precio_valido
 from archivo import guardar_inventario, cargar_inventario
 
 def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
