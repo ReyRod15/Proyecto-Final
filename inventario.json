@@ -1,32 +1,42 @@
 {
     "P001": {
         "nombre": "Polarizado Nanoceramico",
-        "cantidad": "10m",
-        "precio_unit": 25.0,
-        "precio_total": 250.0
+        "cantidad": 55,
+        "unidad_medida": "m",
+        "precio_unit": 26,
+        "precio_total": 1430,
+        "minimo": 20
     },
     "R001": {
         "nombre": "Radio Pionner mvh-av251bt",
-        "cantidad": "5 Unid",
-        "precio_unit": 325.0,
-        "precio_total": 1625.0
+        "cantidad": 5,
+        "unidad_medida": "Unit",
+        "precio_unit": 325,
+        "precio_total": 1625.0,
+        "minimo": 5
     },
     "A001": {
         "nombre": "Alarma k9",
-        "cantidad": "10 Unid",
+        "cantidad": 10,
+        "unidad_medida": "Unit",
         "precio_unit": 48,
-        "precio_total": 400.0
+        "precio_total": 400.0,
+        "minimo": 4
     },
     "C001": {
         "nombre": "Canastera Rhino",
-        "cantidad": "2 Unid",
-        "precio_unit": 100.0,
-        "precio_total": 200.0
+        "cantidad": 3,
+        "unidad_medida": "Unit",
+        "precio_unit": 100,
+        "precio_total": 200.0,
+        "minimo": 2
     },
     "R002": {
         "nombre": "Radio pioneer avh-g225bt",
-        "cantidad": "10 Unid",
-        "precio_unit": 210.0,
-        "precio_total": 2100.0
+        "cantidad": 5,
+        "unidad_medida": "Unit",
+        "precio_unit": 210,
+        "precio_total": 1050.0,
+        "minimo": 5
     }
 }
