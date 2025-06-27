@@ -73,7 +73,7 @@ def borrar_producto(inventario):
     mostrar_productos(inventario)
     encontrado = False
     while encontrado == False:
-        producto_borrar = str(input("\nEscriba el ID: "))
+        producto_borrar = str(input("\nEscriba el ID: ")).capitalize()
         for i in inventario.keys():
             if producto_borrar == i:
                 encontrado = True
@@ -84,6 +84,7 @@ def borrar_producto(inventario):
                         if doble_veri == "CONFIRMAR":
                             del inventario[producto_borrar]
                             print("\nProducto borrado con exito")
+                            break
                         else:
                             print("\nProceso cancelado")
                 break
