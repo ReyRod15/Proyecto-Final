@@ -165,14 +165,14 @@ def cambiar_datos(inventario):
                     break
                 elif opcion == "2":
                     inventario[eleccion]["cantidad"] = int(input(f"Ingrese la nueva cantidad para el producto ID# {eleccion}: "))
-                    inventario[eleccion]["precio_total"] = f"{inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]}"
+                    inventario[eleccion]["precio_total"] = inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]
                     print(f"\n======= Cantidad actualizada a {inventario[eleccion]["cantidad"]} {inventario[eleccion]["unidad_medida"]} =======")
                     guardar_inventario(inventario)
                     registrar_cambio(f"Cambio de cantidad de producto #{eleccion} - nombre: {inventario[eleccion]["nombre"]} - nueva cantidad: {inventario[eleccion]["cantidad"]}")
                     break
                 elif opcion == "3":
                     inventario[eleccion]["precio_unit"] = int(input(f"Ingrese el nuevo precio para el producto ID# {eleccion}: "))
-                    inventario[eleccion]["precio_total"] = {inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]}
+                    inventario[eleccion]["precio_total"] = inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]
                     print(f"\n======= Precio actualizado a {inventario[eleccion]["precio_unit"]} por {inventario[eleccion]["unidad_medida"]} =======")
                     guardar_inventario(inventario)
                     registrar_cambio(f"Cambio de precio de producto #{eleccion} - nombre: {inventario[eleccion]["nombre"]} - nuevo precio: {inventario[eleccion]["precio_unit"]}$")
