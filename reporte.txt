@@ -1,0 +1,5 @@
+[2025-06-29 14:50:51] Producto #P002 - Polarizado quamtum agregado con 20 m
+[2025-06-29 19:16:56] Producto #A002 - Antivuelco hilux agregado con 3 Unid
+[2025-06-29 19:20:13] Cambio de precio de producto #A001 - nombre: Alarma k9 - nuevo precio: 49$
+[2025-06-29 21:14:28] Se compro 1 Unid del producto #A002
+[2025-06-29 21:15:04] Se vendio 5 m del producto #P001
