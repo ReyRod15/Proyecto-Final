@@ -2,21 +2,21 @@ import pyfiglet
 import msvcrt
 import time
 from archivo import cargar_inventario
-from inventario import mostrar_productos, agregar_producto, borrar_producto, actu_precios, cambiar_datos
-from reporte import alerta_min
+from inventario import mostrar_productos, agregar_producto, borrar_producto, actu_precios, cambiar_datos, compra_venta
+from reporte import alerta_min, mostrar_registro
 def main():
     def menu():
         inventario = cargar_inventario()
         print(pyfiglet.figlet_format("Inventario", font="slant"))
         presentacion = [
             "Menu de Opciones",
-            "1. Mostrar los productos",
+            "1. Mostrar Productos",
             "2. Agregar Producto",
             "3. Borrar Producto",
-            "4. Actualizar precios",
+            "4. Actualizar Precios",
             "5. Reporte de Movimientos",
             "6. Cambiar Datos de un Producto",
-            "7. Ultimo Cambio hecho",
+            "7. Comprar/Vender Productos",
             "8. Salir"
         ]
         opcion = 0
@@ -50,7 +50,7 @@ def main():
                     print("\nPresiona cualquier tecla para continuar...")
                     msvcrt.getch()
                 elif opcion == 5:
-                    #Funcion por crearse (Reporte)
+                    mostrar_registro()
                     alerta_min(inventario)
                     print("\nPresiona cualquier tecla para continuar...")
                     msvcrt.getch()
@@ -60,19 +60,19 @@ def main():
                     print("\nPresiona cualquier tecla para continuar...")
                     msvcrt.getch()
                 elif opcion == 7:
-                    #Funcion por crearse
+                    compra_venta(inventario)
                     alerta_min(inventario)
                     print("\nPresiona cualquier tecla para continuar...")
                     msvcrt.getch()
                 elif opcion == 8:
                     [print(c, end='', flush=True) or time.sleep(0.05) for c in "Saliendo del Programa, Gracias por todo :)"]
                 else:
-                    print("\nEscoge una opcion valida")
+                    print("\nEscoge una opcion valida, 1 al 8")
                     time.sleep(1)
                     print("")
             except ValueError:
                 print()
-                print("\nSelecciona una opcion valida")
+                print("\nSelecciona un numero valido")
     menu()
 
 if __name__ == "__main__":

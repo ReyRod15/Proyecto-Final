@@ -1,10 +1,10 @@
 {
     "P001": {
         "nombre": "Polarizado Nanoceramico",
-        "cantidad": 55,
+        "cantidad": 53,
         "unidad_medida": "m",
         "precio_unit": 26,
-        "precio_total": 1430,
+        "precio_total": 1378,
         "minimo": 20
     },
     "R001": {
@@ -19,8 +19,8 @@
         "nombre": "Alarma k9",
         "cantidad": 10,
         "unidad_medida": "Unit",
-        "precio_unit": 48,
-        "precio_total": 400.0,
+        "precio_unit": 49,
+        "precio_total": 490,
         "minimo": 4
     },
     "C001": {
@@ -38,5 +38,21 @@
         "precio_unit": 210,
         "precio_total": 1050.0,
         "minimo": 5
+    },
+    "P002": {
+        "nombre": "Polarizado quamtum",
+        "cantidad": 20,
+        "unidad_medida": "m",
+        "precio_unit": 24,
+        "precio_total": 480,
+        "minimo": 15
+    },
+    "A002": {
+        "nombre": "Antivuelco hilux",
+        "cantidad": 6,
+        "unidad_medida": "Unid",
+        "precio_unit": 150,
+        "precio_total": 900,
+        "minimo": 2
     }
 }

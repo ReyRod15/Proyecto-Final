@@ -1,7 +1,8 @@
+import msvcrt
 import time
 from tabulate import tabulate
 from utilidades import generar_id, pedir_precio_valido
-from archivo import guardar_inventario, cargar_inventario
+from archivo import guardar_inventario
 from reporte import registrar_cambio
 
 def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
@@ -45,7 +46,7 @@ def agregar_producto(inventario): # Esta funcion agrega un producto nuevo
         "minimo": minimo
     }
     guardar_inventario(inventario)
-    registrar_cambio(f"====== Producto #{nuevo_id} - {nombre} agregado con {cantidad} {unidad_medida} ======")
+    registrar_cambio(f"Producto #{nuevo_id} - {nombre} agregado con {cantidad} {unidad_medida}")
     print(f"Producto {nombre}, agregado con exito")
 
 def mostrar_productos(inventario):
@@ -87,7 +88,7 @@ def borrar_producto(inventario):
                         doble_veri = str(input("\nEscriba 'CONFIRMAR' para proceder: "))
                         if doble_veri == "CONFIRMAR":
                             del inventario[producto_borrar]
-                            print("\nProducto borrado con exito")
+                            print("\n======= Producto borrado con exito =======")
                             break
                         else:
                             print("\nProceso cancelado")
@@ -111,7 +112,7 @@ def actu_precios(inventario):
                 print(f"Precio actual >>> {datos["precio_unit"]}")
                 try:
                     datos["precio_unit"] = pedir_precio_valido("Nuevo precio: ")
-                    print(f"====== Precio de '{datos["nombre"]}', cambiado con exito a {datos["precio_unit"]} ======")
+                    print(f"====== Precio de '{datos["nombre"]}', cambiado con exito a {datos["precio_unit"]}$ ======")
                     print()
                     registrar_cambio(f"Cambio de precio de producto #{id_} - nombre: {datos["nombre"]} a {datos["precio_unit"]}$")
                 except ValueError:
@@ -171,7 +172,7 @@ def cambiar_datos(inventario):
                     break
                 elif opcion == "3":
                     inventario[eleccion]["precio_unit"] = int(input(f"Ingrese el nuevo precio para el producto ID# {eleccion}: "))
-                    inventario[eleccion]["precio_total"] = f"{inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]}"
+                    inventario[eleccion]["precio_total"] = {inventario[eleccion]["precio_unit"] * inventario[eleccion]["cantidad"]}
                     print(f"\n======= Precio actualizado a {inventario[eleccion]["precio_unit"]} por {inventario[eleccion]["unidad_medida"]} =======")
                     guardar_inventario(inventario)
                     registrar_cambio(f"Cambio de precio de producto #{eleccion} - nombre: {inventario[eleccion]["nombre"]} - nuevo precio: {inventario[eleccion]["precio_unit"]}$")
@@ -206,35 +207,41 @@ def compra_venta(inventario):
             eleccion = int(input("\nQuieres comprar o vender?: "))
             if eleccion == 1:
                 while True:
-                    producto = str(input("\nIngrese el ID del producto a comprar: "))
+                    mostrar_productos(inventario)
+                    producto = str(input("\nIngrese el ID del producto a comprar: ")).capitalize()
                     if producto in inventario:
                         cantidad_comprar = int(input(f"\nCuanto del producto '{inventario[producto]["nombre"]}' quiere comprar: "))
                         inventario[producto]["cantidad"] += cantidad_comprar
-                        inventario[producto]["precio_total"] = f"{inventario[producto]["precio_unit"] * inventario[eleccion]["cantidad"]}"
+                        inventario[producto]["precio_total"] = inventario[producto]["precio_unit"] * inventario[producto]["cantidad"]
                         guardar_inventario(inventario)
-                        registrar_cambio(f"Se compro {cantidad_comprar} {inventario[producto]["unidad_medida"]} del producto #{inventario[producto]}")
-                        print("=========== Producto vendido con exito ===========")
+                        registrar_cambio(f"Se compro {cantidad_comprar} {inventario[producto]["unidad_medida"]} del producto #{producto}")
+                        print("\n=========== Producto comprado con exito ===========")
                         print()
-                        break
+                        return
                     else:
                         print("\nId no valido, intente de nuevo")
+                        print("\nPresiona cualquier tecla para continuar...")
+                        msvcrt.getch()
             elif eleccion == 2:
                 while True:
-                    producto = str(input("\nIngrese el ID del producto a vender: "))
+                    mostrar_productos(inventario)
+                    producto = str(input("\nIngrese el ID del producto a vender: ")).capitalize()
                     if producto in inventario:
                         cantidad_vender = int(input(f"\nCuanto del producto '{inventario[producto]["nombre"]}' quiere vender: "))
                         if cantidad_vender <= inventario[producto]["cantidad"]:
                             inventario[producto]["cantidad"] -= cantidad_vender
-                            inventario[producto]["precio_total"] = f"{inventario[producto]["precio_unit"] * inventario[eleccion]["cantidad"]}"
+                            inventario[producto]["precio_total"] = inventario[producto]["precio_unit"] * inventario[producto]["cantidad"]
                             guardar_inventario(inventario)
-                            registrar_cambio(f"Se vendio {cantidad_vender} {inventario[producto]["unidad_medida"]} del producto #{inventario[producto]}")
-                            print("=========== Producto vendido con exito ===========")
+                            registrar_cambio(f"Se vendio {cantidad_vender} {inventario[producto]["unidad_medida"]} del producto #{producto}")
+                            print("\n=========== Producto vendido con exito ===========")
                             print()
-                            break
+                            return
                         else:
-                            print(f"\nCantidad superior a existencias actuales, stock actual: {inventario[eleccion]["cantidad"]} {inventario[eleccion]["unidad_medida"]}")
+                            print(f"\nCantidad superior a existencias actuales, stock actual: {inventario[producto]["cantidad"]} {inventario[producto]["unidad_medida"]}")
                     else:
                         print("\nId no valido, intente de nuevo")
+                        print("\nPresiona cualquier tecla para continuar...")
+                        msvcrt.getch()
             elif eleccion == 3:
                 print("Volviendo al menu...")
                 print()
