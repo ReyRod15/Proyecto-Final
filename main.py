@@ -10,13 +10,13 @@ def main():
         print(pyfiglet.figlet_format("Inventario", font="slant"))
         presentacion = [
             "Menu de Opciones",
-            "1. Mostrar Productos",
-            "2. Agregar Producto",
-            "3. Borrar Producto",
-            "4. Actualizar Precios",
-            "5. Reporte de Movimientos",
-            "6. Cambiar Datos de un Producto",
-            "7. Comprar/Vender Productos",
+            "1. Mostrar productos",
+            "2. Agregar producto",
+            "3. Borrar producto",
+            "4. Actualizar precios",
+            "5. Reporte de movimientos",
+            "6. Cambiar datos de un producto",
+            "7. Comprar/Vender productos",
             "8. Salir"
         ]
         opcion = 0
